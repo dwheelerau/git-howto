@@ -22,6 +22,6 @@
 2.  After you create the repo copy the new url that is created
 3.  Back in your local repo type: `git remote add origin
     git@github.com:dwheelerau/git-howto.git`
-*    The previous command adds the URL to the remote alias
+   * The previous command adds the URL to the remote alias
 5.  Then to push the local repo to github: `git push -u origin master`
-*    This command is *push <remote> <local branch>*
+   * This command is *push <remote> <local branch>*

@@ -8,7 +8,7 @@ https://www.atlassian.com/git/tutorials/syncing/git-push)<br>
 **remote**: The shared repo that is at github<br>
 **origin**: An alias on your machine to the remote url for the github repo<br>
 **upstream**: Changes that have occured in repo that are yet to get to you<br>
-**Patch**: Synonymouse with a `git diff` output
+**patch**: Synonymouse with a `git diff` output
 
 ## Starting a local repo
 
@@ -16,12 +16,13 @@ https://www.atlassian.com/git/tutorials/syncing/git-push)<br>
 2.  type: `git init`
 3.  type: `echo "*.tmp" >> .gitignore` to ignore files in this file
 4.  type: `git add .`  to add all files in this directory
-5.  type: `git commit -am"my first commit"` to add and a message
+5.  type: `git commit -am"my first commit"` to add and a message (the 
+-am part is shorthand for 'add' and -m 'message')
 
 
 ## Link a local repo to a NEW repo at github
 
-1.  Goto github and create a report (don't create a *README.md*)
+1.  Goto [github](https://github.com) and create a report (don't create a *README.md*)
 2.  After you create the repo copy the new url that is created
 3.  Back in your local repo type: `git remote add origin
     git@github.com:dwheelerau/git-howto.git`
@@ -42,7 +43,7 @@ git merge to sync them.
    * This will create a new branch that is origin/master
    * Checking out this new branch will disconect you from HEAD ie
 any changes you make on this branch won't effect anything locally
-2.  Compare the two: git diff master origin/master
+2.  Compare the two: `git diff master origin/master`
 3.  If you are happy merge them: `git merge origin/master`
    * Make sure you are on your local master branch when you do the merge
    * You will have to fix any conflicts at this point
@@ -55,7 +56,7 @@ calls git fetch and does the merge.
    * The rebase option is a good one because it puts your changes
 on top of what others have done and maintains a linear history. The 
 way that this works is that it incorporates all the changes in your 
-current branch with that of the remote so that you are then able to
+current branch with that of the remote so that you are then it is posible to
 do a simple fast-foward merge without having two separate histories.
 
 **Option 3**: 
@@ -70,15 +71,20 @@ A push will sync the remote up with your local repo. <br>
 
 **Option 1**: 
 This option is a standard push<br>
-1.  Type: `git push <remote> <local_branch>`
-   * This should be trivial if your local and remote have a linear history,
-that is that the remote has not changed since you last pulled from it. In
-this situation the remote will just gain the new changes. However, if the 
+1.  Type: `git fetch origin master` to get a copy of the remote
+2.  Type: `git rebase -i origin/master` to rebase the remote with your local
+3.  Type: `git push origin master` to push your changes to github
+   * Since you already did the rebase this should just be a simple fast-forward
+   * The format of the above command is `git push <remote> <local_branch>`
+   * It is ok not to rebase and just push if you are sure that your remote
+has not changed since the last pull (ie you are the only one working on it). 
+However, if the 
 remote has changed as well as the local (ie someone else pushed to it), then
 your push will no longer be a fast-forward (fast forwarding the outofdate
 remote to be up to date with yours). In the case of non-fastforward changes
 you will have to pull the remote and deal with any conflicts before you can
-push to it. Makes sense really and beats option 2 below!
+push to it (or deal with it via rebase). Makes sense really and beats option 2 
+below!
 
 **Option 2**: 
 This option will force your remote to be a copy of your local. Be careful

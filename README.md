@@ -2,9 +2,9 @@
 
 ## Definitions
 
-**master**: The main branch in your local repo\s\s
-**remote**: The shared repo that is at github\s\s
-**origin**: An alias on your machine to the remote url for the github repo\s\s
+**master**: The main branch in your local repo<br>
+**remote**: The shared repo that is at github<br>
+**origin**: An alias on your machine to the remote url for the github repo<br>
 
 
 ## Starting a local repo

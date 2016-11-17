@@ -71,9 +71,10 @@ A push will sync the remote up with your local repo. <br>
 
 **Option 1**: 
 This option is a standard push<br>
-1.  Type: `git fetch origin master` to get a copy of the remote
-2.  Type: `git rebase -i origin/master` to rebase the remote with your local
-3.  Type: `git push origin master` to push your changes to github
+1.  Type: `git fetch origin master` to get a copy of the remote<br>
+2.  Type: `git rebase -i origin/master` to rebase the remote with your
+    local<br>
+3.  Type: `git push origin master` to push your changes to github<br>
    * Since you already did the rebase this should just be a simple fast-forward
    * The format of the above command is `git push <remote> <local_branch>`
    * It is ok not to rebase and just push if you are sure that your remote
@@ -93,4 +94,4 @@ as this could stuff other people up who might be sharing your repo.<br>
 
 **Option 3**: 
 This option pushes all local branches to the remote repo.<br>
-1.  Type: `git push <remote> --all
+1.  Type: `git push <remote> --all`
